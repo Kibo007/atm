@@ -6,7 +6,7 @@ const defaultState = {
   message: messages.step_0,
   cardMounted: false,
   moneyWithdrew: false,
-  definedAmounts,
+  definedAmounts
 };
 
 export default function atm ( state = defaultState, action ) {

@@ -10,14 +10,14 @@ var sassLoaders = [
 
 module.exports = {
   devtool: 'eval',
-  entry: [
+  entry  : [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
     './src/index'
   ],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+  output : {
+    path      : path.join(__dirname, 'dist'),
+    filename  : 'bundle.js',
     publicPath: '/static/'
   },
   plugins: [
@@ -26,21 +26,27 @@ module.exports = {
   ],
   resolve: {
     extensions: ['', '.js'],
-    alias: {
+    alias     : {
       'react': path.join(__dirname, '..', '..', 'node_modules', 'react')
     }
   },
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/
-    }, {
-      // HTML LOADER
-      // Reference: https://github.com/webpack/raw-loader
-      // Allow loading html through js
-      test: /\.html$/,
-      loader: 'raw'
-    }]
+  module : {
+    loaders: [
+      {
+        test   : /\.js$/,
+        loaders: ['babel'],
+        exclude: /node_modules/
+      },
+      {
+        // HTML LOADER
+        // Reference: https://github.com/webpack/raw-loader
+        // Allow loading html through js
+        test  : /\.html$/,
+        loader: 'raw'
+      },
+      {test: /\.css$/, loader: "style-loader!css-loader"},
+      {test: /\.png$/, loader: "url-loader?limit=100000"},
+      {test: /\.jpg$/, loader: "file-loader"}
+    ]
   }
 };
