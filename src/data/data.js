@@ -7,3 +7,7 @@ export const messages = {
   step_5: `Thank you`,
   invalid: `Incorrect pin, would you like to try again?`
 };
+
+export const definedAmounts = [20, 50, 100, 200, 300, 400];
+
+export const userPin = '1234';

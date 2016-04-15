@@ -1,9 +1,10 @@
 import {bindActionCreators} from 'redux';
-import { ActionCreators } from 'redux-undo';
+
+import {insertCard, ejectCard} from './atm-card';
+import {abortProcess, previousState, confirmInput, resetInput, numKeypad } from './keypad'
 
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-
 
 export const CARD_MOUNT = 'CARD_MOUNT';
 export const MONEY_WITHDRAW = 'MONEY_WITHDRAW';
@@ -13,6 +14,8 @@ export const CLEAR_INPUT = 'CLEAR_INPUT';
 export const ACCEPT_INPUT = 'ACCEPT_INPUT';
 export const OPTION_BAR = 'OPTION_BAR';
 export const LOADING_BAR = 'LOADING_BAR';
+export const NUM_KEYPAD = 'NUM_KEYPAD';
+
 
 export function increment() {
   return {
@@ -46,23 +49,26 @@ export function incrementAsync(delay = 1000) {
   };
 }
 
-export function previousState(delay = 100) {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(ActionCreators.undo());
-    }, delay);
-  };
-}
+export const repeatPin = (option) => {
+  return {
+    type: OPTION_BAR,
+    payload: option
+  }
+};
+
+
+
+export const actionCreator = {
+  increment,
+  decrement,
+  incrementIfOdd,
+  incrementAsync,
+  previousState,
+  insertCard,
+  ejectCard
+};
 
 export default function atmActions($ngRedux) {
-  let actionCreator = {
-    increment,
-    decrement,
-    incrementIfOdd,
-    incrementAsync,
-    previousState
-  };
-
   return bindActionCreators(actionCreator, $ngRedux.dispatch);
 }
 
