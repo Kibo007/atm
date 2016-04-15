@@ -36,3 +36,11 @@ export const resetInput = () => {
     payload: ''
   }
 };
+
+export const actionCreators = {
+  previousState,
+  confirmInput,
+  numKeypad,
+  abortProcess,
+  resetInput
+};
