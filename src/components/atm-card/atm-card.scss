@@ -1,0 +1,33 @@
+.AtmCard {
+  width: 285px;
+  height: 600px;
+
+  &-slot {
+    width: 100%;
+    height: 80px;
+    background-image: url(../../assets/card-reader.jpg);
+    background-repeat: no-repeat;
+  }
+  &-cardWrapper {
+    height: 320px;
+    width: 285px;
+    overflow: hidden;
+    margin-top: -30px
+  }
+  &-card {
+    background-image: url(../../assets/card.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 169px;
+    border-radius: 10px;
+  }
+  .cardInserted {
+    transform: translate3d(0, -320px, 0);
+    transition: transform 3s ease-in-out;
+  }
+  .cardEject {
+    transform: translate3d(0, 0, 0);
+    transition: transform 3s ease-in-out;
+  }
+}

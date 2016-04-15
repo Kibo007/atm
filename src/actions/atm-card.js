@@ -13,3 +13,8 @@ export const ejectCard = () => {
     payload: false
   }
 };
+
+export const actionCreators = {
+  insertCard,
+  ejectCard
+};

@@ -9,7 +9,8 @@ import atmTemplate from './atm.tmpl'
 //import {increment, decrement, previousState} from './../actions/atm';
 //import { insertCard, ejectCard } from './../actions/atm-card';
 import {actionCreator} from './../actions/atm';
-import keypad from './keypad/key-pad';
+import keypad from './keypad/key-pad.directive';
+import atmCard from './atm-card/atm-card.directive'
 
 function ATMController ($scope, $ngRedux) {
   'ngInject';
@@ -25,13 +26,14 @@ export default angular
     ngAria,
     ngAnimate,
     ngMaterial,
-    keypad
+    keypad,
+    atmCard
   ])
   .directive('atm', () => ({
     restrict: 'E',
     //template: atmTemplate,
     template: `
-    <keypad></keypad>
+    <atm-card></atm-card>
     `,
     controller: ATMController,
     controllerAs: 'vm'
