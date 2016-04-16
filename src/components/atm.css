@@ -1,7 +1,27 @@
 li {
   list-style:none;
 }
+
 ul {
   margin: 0;
   padding: 0;
+}
+
+.logo {
+  background: url(../assets/logo.png);
+  width: 120px;
+  height: 25px;
+}
+.sign {
+  background: url(../assets/sign.png);
+  width: 150px;
+  height: 150px;
+}
+.sign,
+.logo {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fullWidth {
+  width: 100%;
 }
