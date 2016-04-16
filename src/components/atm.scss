@@ -1,0 +1,34 @@
+li {
+  list-style:none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../assets/pattern.png);
+}
+
+.AtmSimulator {
+  padding: 0px 100px;
+
+  .logo {
+    background: url(../assets/logo.png);
+    width: 120px;
+    height: 25px;
+  }
+  .sign {
+    background: url(../assets/sign.png);
+    width: 100px;
+    height: 100px;
+  }
+  .sign,
+  .logo {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .fullWidth {
+    width: 100%;
+  }
+}

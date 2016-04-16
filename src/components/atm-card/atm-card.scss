@@ -1,6 +1,5 @@
 .AtmCard {
   width: 285px;
-  height: 600px;
 
   &-slot {
     width: 100%;
@@ -21,10 +20,15 @@
     height: 270px;
     width: 169px;
     border-radius: 10px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
   }
   .cardInserted {
     transform: translate3d(0, -320px, 0);
-    transition: transform 3s ease-in-out;
+    transition: transform 2s ease-in-out;
   }
   .cardEject {
     transform: translate3d(0, 0, 0);

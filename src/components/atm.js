@@ -1,43 +1,53 @@
-import angular from 'angular';
-import ngAria from 'angular-aria';
-import ngAnimate from 'angular-animate';
-import ngMaterial from 'angular-material';
+// import CSS
 import 'angular-material/angular-material.css'
-import './atm.css'
+import './atm.scss'
 
-import atmTemplate from './atm.tmpl'
-//import {increment, decrement, previousState} from './../actions/atm';
-//import { insertCard, ejectCard } from './../actions/atm-card';
+// import components
 import {actionCreator} from './../actions/atm';
 import keypad from './keypad/key-pad.directive';
 import atmCard from './atm-card/atm-card.directive';
 import moneySlot from './money-slot/money-slot.directive';
+import monitor from './monitor/monitor.directive';
 
 function ATMController ($scope, $ngRedux) {
   'ngInject';
 
+  // this is main smart component connect to redux store
   let unsubscribe = $ngRedux.connect(state => (state.atm), actionCreator)(this);
   $scope.$on('$destroy', unsubscribe);
 
-  var vm = this;
+  var atm = this;
 }
 
 export default angular
   .module('app.atm', [
-    ngAria,
-    ngAnimate,
-    ngMaterial,
     keypad,
     atmCard,
-    moneySlot
+    moneySlot,
+    monitor
   ])
   .directive('atm', () => ({
     restrict: 'E',
-    //template: atmTemplate,
     template: `
-    <money-slot></money-slot>
+    <div class="AtmSimulator">
+      <!-- monitor and atm card start -->
+      <div layout="row" layout-align="space-between start">
+        <monitor message="atm.present.message" input-field="atm.present.inputField"></monitor>
+        <atm-card insert-card="atm.insertCard()" card-mounted="atm.present.cardMounted"></atm-card>
+      </div>
+      <!-- monitor and atm card end -->
+
+      <!-- keypad and money slot start -->
+      <div layout="row" layout-align="space-between start">
+        <key-pad></key-pad>
+        <money-slot money-withdrew="atm.present.moneyWithdrew" amount="atm.present.amount"></money-slot>
+      </div>
+      <!-- keypad and money slot end -->
+
+    </div>
     `,
     controller: ATMController,
-    controllerAs: 'vm'
+    controllerAs: 'atm',
+    bindToController: true
   }))
   .name;

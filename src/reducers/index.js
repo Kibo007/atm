@@ -6,7 +6,7 @@ import undoable, { includeAction } from 'redux-undo'
 
 const rootReducer = combineReducers({
   atm: undoable(atm, {
-    limit: 10, // set a limit for the history
+    limit: 50, // set a limit for the history
     debug: true
   })
 });

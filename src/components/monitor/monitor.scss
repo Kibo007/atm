@@ -1,0 +1,19 @@
+.Monitor {
+  //background-image: url(../../assets/pattern.png);
+  background: #AEAEAE;
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+
+  &-screen {
+    background: #F0F0F0;
+    width: 390px;
+    height: 360px;
+    text-align: center;
+    padding: 25px;
+
+    input {
+      text-align: center;
+    }
+  }
+}

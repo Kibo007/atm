@@ -1,75 +1,41 @@
-import {bindActionCreators} from 'redux';
-
-import {insertCard, ejectCard} from './atm-card';
-import {abortProcess, previousState, confirmInput, resetInput, numKeypad } from './keypad'
-
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-
+// types
 export const CARD_MOUNT = 'CARD_MOUNT';
+export const INCREMENT_MESSAGE = 'INCREMENT_MESSAGE';
 export const MONEY_WITHDRAW = 'MONEY_WITHDRAW';
-export const UPDATE_STEP = 'UPDATE_STEP';
-export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
-export const CLEAR_INPUT = 'CLEAR_INPUT';
-export const ACCEPT_INPUT = 'ACCEPT_INPUT';
-export const OPTION_BAR = 'OPTION_BAR';
-export const LOADING_BAR = 'LOADING_BAR';
+export const RESET_PROCESS = 'RESET_PROCESS';
+export const UPDATE_INPUT = 'UPDATE_INPUT';
+export const CONFIRM_INPUT = 'CONFIRM_INPUT';
+export const SELECT_AMOUNT = 'SELECT_AMOUNT';
+export const END_PROCESS = 'END_PROCESS';
 export const NUM_KEYPAD = 'NUM_KEYPAD';
 
-
-export function increment() {
+// action creators
+const incrementMessage = () => {
   return {
-    type: INCREMENT_COUNTER
+    type: INCREMENT_MESSAGE
   };
-}
+};
 
-export function decrement() {
+const cardMounted = () => {
   return {
-    type: DECREMENT_COUNTER
-  };
-}
+    type: CARD_MOUNT,
+    payload: true
+  }
+};
 
-export function incrementIfOdd() {
-  return (dispatch, getState) => {
-    const {counter} = getState();
-
-    if (counter % 2 === 0) {
-      return;
-    }
-
-    dispatch(increment());
-  };
-}
-
-export function incrementAsync(delay = 1000) {
+// Async action creator
+export const insertCard = (delay = 2500) => {
   return dispatch => {
+    dispatch(cardMounted());
     setTimeout(() => {
-      dispatch(increment());
+      dispatch(incrementMessage());
     }, delay);
   };
 }
 
-export const repeatPin = (option) => {
-  return {
-    type: OPTION_BAR,
-    payload: option
-  }
-};
-
-
-
+// combined action creator
 export const actionCreator = {
-  increment,
-  decrement,
-  incrementIfOdd,
-  incrementAsync,
-  previousState,
   insertCard,
-  ejectCard
+  incrementMessage
 };
 
-export default function atmActions($ngRedux) {
-  return bindActionCreators(actionCreator, $ngRedux.dispatch);
-}
-
-atmActions.$inject = ['$ngRedux'];

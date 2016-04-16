@@ -1,6 +1,7 @@
 import { ActionCreators } from 'redux-undo';
-import {ACCEPT_INPUT, NUM_KEYPAD, UPDATE_STEP} from './atm';
+import {UPDATE_INPUT, NUM_KEYPAD, RESET_PROCESS, CONFIRM_INPUT} from './atm';
 
+// Async action creator
 export const previousState = (delay = 100) => {
   return dispatch => {
     setTimeout(() => {
@@ -9,10 +10,10 @@ export const previousState = (delay = 100) => {
   };
 };
 
-export const confirmInput = (input) => {
+// Action creator
+export const confirmInput = () => {
   return {
-    type: ACCEPT_INPUT,
-    payload: input
+    type: CONFIRM_INPUT
   }
 };
 
@@ -25,22 +26,30 @@ export const numKeypad = (option) => {
 
 export const abortProcess = () => {
   return {
-    type: UPDATE_STEP,
-    payload: 0
+    type: RESET_PROCESS
   }
 };
 
 export const resetInput = () => {
   return {
-    type: ACCEPT_INPUT,
-    payload: ''
+    type: UPDATE_INPUT,
+    reset: true
   }
 };
 
+export const addCharacter = (input) => {
+  return {
+    type: UPDATE_INPUT,
+    payload: input
+  }
+};
+
+// Combined action creator
 export const actionCreators = {
   previousState,
   confirmInput,
   numKeypad,
   abortProcess,
-  resetInput
+  resetInput,
+  addCharacter
 };
