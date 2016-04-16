@@ -22,6 +22,7 @@ export default angular
         </div>
       </div>
       <!-- card end -->
+      <span ng-show="!cardMounted" class="AtmCard-message">click on card</span>
 
     </div>
     `,

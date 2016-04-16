@@ -31,14 +31,14 @@ export default angular
     template: `
     <div class="AtmSimulator">
       <!-- monitor and atm card start -->
-      <div layout="row" layout-align="space-between start">
+      <div layout="row" layout-align="space-between start" class="pt-small">
         <monitor message="atm.present.message" input-field="atm.present.inputField"></monitor>
         <atm-card insert-card="atm.insertCard()" card-mounted="atm.present.cardMounted"></atm-card>
       </div>
       <!-- monitor and atm card end -->
 
       <!-- keypad and money slot start -->
-      <div layout="row" layout-align="space-between start">
+      <div layout="row" layout-align="space-between start" class="pt-big">
         <key-pad></key-pad>
         <money-slot money-withdrew="atm.present.moneyWithdrew" amount="atm.present.amount"></money-slot>
       </div>

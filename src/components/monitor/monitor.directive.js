@@ -53,6 +53,7 @@ export default angular
       </ul>
       <!-- btns left for amount select end -->
 
+      <!-- main screen start -->
       <div class="Monitor-screen" layout="column" layout-align="center center">
         <!-- main screen message -->
         <h1 ng-bind="vm.message"></h1>
@@ -66,7 +67,12 @@ export default angular
                             value="{{vm.determinateValue}}"
                             ng-init="vm.startInterval()">
         </md-progress-linear>
+
+        <div ng-show="vm.present.step === 0 || vm.present.step === 5">
+          <div class="name"></div><div class="sign"></div>
+        </div>
       </div>
+      <!-- main screen end -->
 
       <!-- btns right for amount select start -->
       <ul class="Monitor-btns--right" flex>

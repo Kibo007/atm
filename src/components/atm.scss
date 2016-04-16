@@ -10,11 +10,30 @@ body {
   background-image: url(../assets/pattern.png);
 }
 
+.Pt-small {
+  padding-top: 20px;
+}
+.pt-big {
+  padding-top: 30px;
+}
+
 .AtmSimulator {
   padding: 0px 100px;
+  max-width: 1200px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 
   .logo {
     background: url(../assets/logo.png);
+    width: 120px;
+    height: 25px;
+  }
+  .name {
+    background: url(../assets/name.png);
     width: 120px;
     height: 25px;
   }
@@ -24,7 +43,8 @@ body {
     height: 100px;
   }
   .sign,
-  .logo {
+  .logo,
+  .name {
     background-repeat: no-repeat;
     background-size: cover;
   }

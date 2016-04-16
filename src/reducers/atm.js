@@ -11,7 +11,7 @@ import {
 
 // helper function to check if val exist in array
 const checkAvailability = (arr, val) => {
-  return arr.some(function(arrVal) {
+  return arr.some(function (arrVal) {
     return val === arrVal;
   });
 };
@@ -45,7 +45,7 @@ export default function atm (state = defaultState, action) {
 
       return {
         ...state,
-        step       : count,
+        step   : count,
         message: messages[`step_${count}`]
       };
     case MONEY_WITHDRAW:
@@ -54,8 +54,8 @@ export default function atm (state = defaultState, action) {
       return {
         ...state,
         moneyWithdrew: action.payload,
-        step: count,
-        message: messages[`step_${count}`]
+        step         : count,
+        message      : messages[`step_${count}`]
       };
     case SELECT_AMOUNT:
       if (state.step !== 2) {
@@ -65,9 +65,9 @@ export default function atm (state = defaultState, action) {
 
       return {
         ...state,
-        amount: action.payload,
-        step: count,
-        message    : messages[`step_${count}`]
+        amount : action.payload,
+        step   : count,
+        message: messages[`step_${count}`]
       };
     case UPDATE_INPUT:
       if (!checkAvailability([1, 2, 6], state.step)) {
@@ -102,7 +102,8 @@ export default function atm (state = defaultState, action) {
       }
       return {...state, inputField: ''};
     case END_PROCESS:
-      return {...state, step: state.step + 1};
+      count = state.step + 1;
+      return {...state, step: count, message: messages[`step_${count}`]};
     default:
       return state
   }

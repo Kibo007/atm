@@ -1,6 +1,7 @@
 .Keypad {
   width: 435px;
   padding: 10px;
-  background: #AEAEAE;
+  background: #949495;
   border-radius: 10px;
+  margin-left: 80px;
 }
