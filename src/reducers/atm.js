@@ -97,6 +97,7 @@ export default function atm (state = defaultState, action) {
         return {
           ...state,
           step   : count,
+          amount: state.inputField,
           message: count === 6 ? messages.invalid : messages[`step_${count}`]
         };
       }
