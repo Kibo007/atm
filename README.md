@@ -25,5 +25,4 @@ for best expirience use chrome browser, I use this node v5.10.1 and npm 3.2.1.
 when app is running go to http://localhost:3000/src/, I didnt setup angular router since was quite busy
 with other things, but that is also one thing I would do to make it better.
 
-to start using it just click on card and it will insert card in to card reader and accordingly update screen
-follow screen and get your money :)
+to start using it just click on card and it will insert card in to card reader, follow screen instructions and get your money :)
