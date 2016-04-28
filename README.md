@@ -20,6 +20,8 @@ I also think would be nice to implement more animation to make all process much 
 to be able to run this project just do `NPM install` to install dependencies
 after that start project with `npm run start`
 
+User pin is "1234"
+
 for best expirience use chrome browser, I use this node v5.10.1 and npm 3.2.1.
 
 when app is running go to http://localhost:3000/src/, I didnt setup angular router since was quite busy
